@@ -1,14 +1,20 @@
 import React from 'react'
-import './App.css';
-import home from './components/home';
-function App() {
+import Home from './Home'
+import Singlemovie from './Singlemovie'
+import Error from './Error'
+import {BrowserRouter,Routes,Route} from 'react-router-dom';  
+const App = () => {
   return (
     <>
-    <div className='container my-3'>
-    <home/>
-    </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Home/>}></Route>
+          <Route path='movie/:id' element={<Singlemovie/>}></Route>
+          <Route path='*' element={<Error/>}></Route>
+        </Routes>
+      </BrowserRouter>
     </>
-  );
+  )
 }
 
 export default App;
